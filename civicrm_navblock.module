@@ -1,0 +1,34 @@
+<?php
+
+define('CIVICRM_DISABLE_DEFAULT_MENU', TRUE);
+
+/**
+ * Implementation of hook_block_info
+ */
+function civicrm_navblock_block_info() {
+  $blocks['civicrm_navblock'] = array(
+    'info' => t('CiviCRM Menu'),
+    'status' => TRUE,
+    'region' => 'content',
+  );
+  return $blocks;
+}
+
+/**
+ * Implementation of hook_block_view
+ */
+function civicrm_navblock_block_view($delta = '') {
+  switch ($delta) {
+    case 'civicrm_navblock':
+      civicrm_initialize();
+      $smarty = CRM_Core_Smarty::singleton();
+      require_once 'CRM/Core/Smarty/plugins/function.crmNavigationMenu.php';
+      $block = array(
+        'subject' => '',
+        'content' => smarty_function_crmNavigationMenu(array(), $smarty),
+      );
+      return $block;
+      break;
+    default:
+  }
+}

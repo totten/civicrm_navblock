@@ -1,0 +1,9 @@
+name = CiviCRM Navblock
+description = Enable o disable the CiviCRM menu by configuring a Drupal block (note: requires 1-line patch)
+version = 2.0
+dependencies[] = civicrm
+package = CiviCRM
+core = 7.x
+php = 5.2
+
+files[] = civicrm_navblock.module
