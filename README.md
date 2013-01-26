@@ -1,5 +1,5 @@
 This module allows you to manage the CiviCRM menu more like a block -- e.g.
-enable it or disable it on based on paths and permissions.
+enable it or disable it based on paths and permissions.
 
 After installing the module, you must also patch the "civicrm.module" file
 to ensure that CiviCRM's Javascript dependencies are loaded.  Specifically,
